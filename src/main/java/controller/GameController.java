@@ -66,25 +66,39 @@ public class GameController{
     }
     @FXML
     void checkGuess(ActionEvent event) {
-        try
-        {
-            if(Integer.parseInt(guess.getText()) == randomNumber){
-                downArrow.setVisible(false);
-                upArrow.setVisible(false);
-                correct.setVisible(true);
-                ujra.setVisible(false);
-                toptiz.setVisible(true);
-                guessCount++;
+        try {
+            if (Integer.parseInt(guess.getText()) >= 0 ) {
+                if (Integer.parseInt(guess.getText()) <= 100) {
+                    if (Integer.parseInt(guess.getText()) == randomNumber) {
+                        downArrow.setVisible(false);
+                        upArrow.setVisible(false);
+                        correct.setVisible(true);
+                        ujra.setVisible(false);
+                        toptiz.setVisible(true);
+                        guessCount++;
 
 
-            } else if(Integer.parseInt(guess.getText()) > randomNumber){
-                downArrow.setVisible(true);
-                upArrow.setVisible(false);
-                correct.setVisible(false);
-            } else if(Integer.parseInt(guess.getText()) < randomNumber){
-                downArrow.setVisible(false);
-                upArrow.setVisible(true);
-                correct.setVisible(false);
+                    } else if (Integer.parseInt(guess.getText()) > randomNumber) {
+                        downArrow.setVisible(true);
+                        upArrow.setVisible(false);
+                        correct.setVisible(false);
+                    } else if (Integer.parseInt(guess.getText()) < randomNumber) {
+                        downArrow.setVisible(false);
+                        upArrow.setVisible(true);
+                        correct.setVisible(false);
+                    }
+                    guess.setText("");
+                    guessCount++;
+                    guessCounterText.setText("Próbálkozások száma: " + guessCount);
+                } else{
+                    Alert alert = new Alert(Alert.AlertType.ERROR, "100-nál nagyobb számot adtál meg", ButtonType.OK);
+                    alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+                    alert.show();
+                }
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR, "1-nél kisebb számot adtál meg", ButtonType.OK);
+                alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+                alert.show();
             }
         }
         catch (NumberFormatException e)
@@ -93,10 +107,6 @@ public class GameController{
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.show();
         }
-
-        guess.setText("");
-        guessCount++;
-        guessCounterText.setText("Próbálkozások száma: " + guessCount);
     }
 
     @FXML

@@ -15,6 +15,7 @@ import java.util.Random;
 import javafx.stage.Stage;
 import numberguessinggame.results.GameResult;
 import numberguessinggame.results.GameResultDao;
+import validator.GuessValidator;
 
 public class GameController{
     private final Random random = new Random();
@@ -66,49 +67,36 @@ public class GameController{
     }
     @FXML
     void checkGuess(ActionEvent event) {
-        try {
-            if (Integer.parseInt(guess.getText()) >= 0 ) {
-                if (Integer.parseInt(guess.getText()) <= 100) {
-                    if (Integer.parseInt(guess.getText()) == randomNumber) {
-                        downArrow.setVisible(false);
-                        upArrow.setVisible(false);
-                        correct.setVisible(true);
-                        ujra.setVisible(false);
-                        toptiz.setVisible(true);
-                        guessCount++;
+        boolean valid = GuessValidator.validate(guess.getText());
+        if (valid) {
+            if (Integer.parseInt(guess.getText()) == randomNumber) {
+                downArrow.setVisible(false);
+                upArrow.setVisible(false);
+                correct.setVisible(true);
+                ujra.setVisible(false);
+                toptiz.setVisible(true);
+                guessCount++;
 
 
-                    } else if (Integer.parseInt(guess.getText()) > randomNumber) {
-                        downArrow.setVisible(true);
-                        upArrow.setVisible(false);
-                        correct.setVisible(false);
-                    } else if (Integer.parseInt(guess.getText()) < randomNumber) {
-                        downArrow.setVisible(false);
-                        upArrow.setVisible(true);
-                        correct.setVisible(false);
-                    }
-                    guess.setText("");
-                    guessCount++;
-                    guessCounterText.setText("Próbálkozások száma: " + guessCount);
-                } else{
-                    Alert alert = new Alert(Alert.AlertType.ERROR, "100-nál nagyobb számot adtál meg", ButtonType.OK);
-                    alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-                    alert.show();
-                }
-            }else{
-                Alert alert = new Alert(Alert.AlertType.ERROR, "1-nél kisebb számot adtál meg", ButtonType.OK);
-                alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-                alert.show();
+            } else if (Integer.parseInt(guess.getText()) > randomNumber) {
+                downArrow.setVisible(true);
+                upArrow.setVisible(false);
+                correct.setVisible(false);
+            } else if (Integer.parseInt(guess.getText()) < randomNumber) {
+                downArrow.setVisible(false);
+                upArrow.setVisible(true);
+                correct.setVisible(false);
             }
-        }
-        catch (NumberFormatException e)
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Nem számot adtál meg", ButtonType.OK);
+
+            guess.setText("");
+            guessCount++;
+            guessCounterText.setText("Próbálkozások száma: " + guessCount);
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Nem megfelelő érték lett megadva!", ButtonType.OK);
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.show();
         }
     }
-
     @FXML
     void reset(ActionEvent event) {
         randomNumber = random.nextInt(100);

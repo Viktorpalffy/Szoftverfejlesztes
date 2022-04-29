@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import validator.UserValidator;
 
 import java.io.IOException;
 
@@ -25,12 +26,9 @@ public class LaunchController {
     private Label errorLabel;
 
     public void startAction(ActionEvent actionEvent) throws IOException {
-        if (usernameTextfield.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Nem lehet üres a játékos neve", ButtonType.OK);
-            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-            alert.show();
-        } else if(usernameTextfield.getText().contains(" ")){
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Nem lehet szóköz a játékos nevében", ButtonType.OK);
+        boolean usernameValid = UserValidator.validate(usernameTextfield.getText());
+        if (!usernameValid) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Hibás játékosnév!", ButtonType.OK);
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.show();
         } else {

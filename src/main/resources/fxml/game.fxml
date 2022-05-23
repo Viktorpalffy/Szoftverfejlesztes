@@ -11,22 +11,22 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GameController">
     <children>
-        <Label fx:id="usernameLabel" layoutX="61.0" layoutY="566.0" prefHeight="16.0" prefWidth="565.0" text="Játékos: ">
+        <Label fx:id="usernameLabel" layoutX="61.0" layoutY="566.0" prefHeight="16.0" prefWidth="565.0" text="Jatekos: ">
             <font>
                 <Font size="22.0" />
             </font>
         </Label>
-        <TextField fx:id="guess" layoutX="114.0" layoutY="168.0" onAction="#checkGuess" promptText="Adj meg egy számot">
+        <TextField fx:id="guess" layoutX="114.0" layoutY="168.0" onAction="#checkGuess" promptText="Adj meg egy szamot">
             <font>
                 <Font size="30.0" />
             </font>
         </TextField>
-        <Text layoutX="68.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tippelj egy számra 0 és 100 között">
+        <Text layoutX="68.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tippelj egy szamra 0 es 100 kozott">
             <font>
                 <Font size="30.0" />
             </font>
         </Text>
-        <Text layoutX="129.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Számkitalálós játék">
+        <Text layoutX="129.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Szamkitalalos jatek">
             <font>
                 <Font name="System Bold" size="37.0" />
             </font>
@@ -46,13 +46,13 @@
                 <Image url="@../Arrow.png" />
             </image>
         </ImageView>
-        <Button fx:id="ujra" layoutX="436.0" layoutY="582.0" mnemonicParsing="false" onAction="#reset" prefHeight="40.0" prefWidth="53.0" text="Újra" />
-        <Text fx:id="guessCounterText" layoutX="61.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Próbálkozások száma: 0">
+        <Button fx:id="ujra" layoutX="436.0" layoutY="582.0" mnemonicParsing="false" onAction="#reset" prefHeight="40.0" prefWidth="53.0" text="Ujra" />
+        <Text fx:id="guessCounterText" layoutX="61.0" layoutY="624.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Probalkozasok szama: 0">
             <font>
                 <Font size="24.0" />
             </font>
         </Text>
       <AnchorPane layoutX="152.0" layoutY="225.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="320.0" />
-      <Button fx:id="toptiz" layoutX="436.0" layoutY="582.0" mnemonicParsing="false" onAction="#showTopTenList" prefHeight="40.0" prefWidth="136.0" text="Toplista megjelenítése" visible="false" />
+      <Button fx:id="toptiz" layoutX="436.0" layoutY="582.0" mnemonicParsing="false" onAction="#showTopTenList" prefHeight="40.0" prefWidth="136.0" text="Toplista megjelenitese" visible="false" />
     </children>
 </AnchorPane>

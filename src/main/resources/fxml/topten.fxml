@@ -12,16 +12,16 @@
    <children>
       <TableView fx:id="toptenTable" editable="true" layoutX="25.0" layoutY="74.0" prefHeight="550.0" prefWidth="650.0">
         <columns>
-          <TableColumn fx:id="player" prefWidth="200.0" text="Játékos" />
-          <TableColumn fx:id="steps" prefWidth="50.0" text="Próbálkozások száma" />
-            <TableColumn fx:id="created" prefWidth="295.0" text="Dátum" />
+          <TableColumn fx:id="player" prefWidth="200.0" text="Jatekos" />
+          <TableColumn fx:id="steps" prefWidth="150.0" text="Probalkozasok szama" />
+            <TableColumn fx:id="created" prefWidth="150.0" text="Datum" />
         </columns>
       </TableView>
-      <Label layoutX="272.0" layoutY="32.0" text="Top 10 játék:">
+      <Label layoutX="272.0" layoutY="32.0" text="Top 10 jatek:">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Button layoutX="300.0" layoutY="635.0" mnemonicParsing="false" onAction="#back" prefHeight="51.0" prefWidth="122.0" text="Vissza a kezdéshez" />
+      <Button layoutX="300.0" layoutY="635.0" mnemonicParsing="false" onAction="#back" prefHeight="51.0" prefWidth="122.0" text="Vissza a kezdeshez" />
    </children>
 </Pane>

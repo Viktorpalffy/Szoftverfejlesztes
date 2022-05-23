@@ -58,7 +58,7 @@ public class TopTenController {
 
         created.setCellFactory(column -> {
             TableCell<GameResult, ZonedDateTime> cell = new TableCell<GameResult, ZonedDateTime>() {
-                private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd - HH:mm:ss Z");
+                private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd - HH:mm:ss");
 
                 @Override
                 protected void updateItem(ZonedDateTime item, boolean empty) {

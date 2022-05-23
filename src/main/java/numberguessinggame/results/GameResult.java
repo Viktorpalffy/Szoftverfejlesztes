@@ -29,7 +29,7 @@ public class GameResult {
     private String player;
 
     /**
-     * The number of steps made by the player.
+     * The number of guesses made by the player.
      */
     private int guessCount;
 

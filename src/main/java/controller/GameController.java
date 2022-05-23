@@ -36,16 +36,16 @@ public class GameController{
     @FXML
     private ImageView correct;
     @FXML
-    Button toptiz;
+    private Button toptiz;
     @FXML
-    Button ujra;
+    private Button ujra;
 
 
 
 
     public void initdata(String userName) {
         this.userName = userName;
-        usernameLabel.setText("Játékos: " + this.userName);
+        usernameLabel.setText("Jatekos: " + this.userName);
     }
 
     @FXML
@@ -75,7 +75,6 @@ public class GameController{
                 correct.setVisible(true);
                 ujra.setVisible(false);
                 toptiz.setVisible(true);
-                guessCount++;
 
 
             } else if (Integer.parseInt(guess.getText()) > randomNumber) {
@@ -90,7 +89,7 @@ public class GameController{
 
             guess.setText("");
             guessCount++;
-            guessCounterText.setText("Próbálkozások száma: " + guessCount);
+            guessCounterText.setText("Probalkozasok szama: " + guessCount);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Nem megfelelő érték lett megadva!", ButtonType.OK);
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
@@ -104,7 +103,7 @@ public class GameController{
         upArrow.setVisible(false);
         correct.setVisible(false);
         guessCount = 0;
-        guessCounterText.setText("Próbálkozások száma: " + guessCount);
+        guessCounterText.setText("Probalkozasok szama: " + guessCount);
         guess.setText("");
     }
     @FXML
